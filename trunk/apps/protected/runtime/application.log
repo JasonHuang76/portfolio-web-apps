@@ -1,0 +1,346 @@
+2012/11/01 15:27:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gii".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CController.php(271): CController->missingAction('gii')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(283): CController->run('gii')
+#2 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('site/gii')
+#3 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/gii
+---
+2012/11/01 15:32:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:32:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:32:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:33:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:33:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:39:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:39:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:39:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "subdomain".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('subdomain')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/subdomain
+---
+2012/11/01 15:39:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:39:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "subdomain".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('subdomain')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/subdomain
+---
+2012/11/01 15:39:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:40:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:40:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:40:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:42:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:42:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:44:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:44:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:45:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:45:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:45:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:45:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:45:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:47:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:48:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:48:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:48:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:48:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:49:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:50:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:51:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:51:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:52:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:52:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:52:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:53:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:53:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:53:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:54:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:55:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/11/01 15:55:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\portfolio-web-apps\framework\web\CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\portfolio-web-apps\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\portfolio-web-apps\apps\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
