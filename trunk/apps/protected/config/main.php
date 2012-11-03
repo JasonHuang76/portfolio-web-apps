@@ -47,6 +47,7 @@ return array(
 			'rules'=>array(
 				'admin'=>'cms/site/index',
         'admin/login'=>'cms/site/login',
+        'admin/logout'=>'cms/site/logout',
         'admin/<controller:\w+>/<id:\d+>'=>'cms/<controller>/view',
         'admin/<controller:\w+>/<action:\w+>/<id:\d+>'=>'cms/<controller>/<action>',
         'admin/<controller:\w+>/<action:\w+>' => 'cms/<controller>/<action>',
