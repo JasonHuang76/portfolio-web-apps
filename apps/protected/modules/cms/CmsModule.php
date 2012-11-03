@@ -12,6 +12,18 @@ class CmsModule extends CWebModule
 			'cms.models.*',
 			'cms.components.*',
 		));
+    
+    // for user login
+    $this->setComponents(array(
+      'errorHandler' => array(
+        'errorAction' => 'cms/site/error'),
+      'user' => array(
+        'class' => 'CWebUser',             
+        'loginUrl' => Yii::app()->createUrl('cms/site/login'),
+      )
+    ));
+ 
+    Yii::app()->user->setStateKeyPrefix('_cms');
 	}
 
 	public function beforeControllerAction($controller, $action)
@@ -20,7 +32,16 @@ class CmsModule extends CWebModule
 		{
 			// this method is called before any module controller action is performed
 			// you may place customized code here
-			return true;
+			$route = $controller->id . '/' . $action->id;
+      $publicPages = array(
+          'site/login',
+          'site/error',
+      );
+      if (Yii::app()->user->isGuest && !in_array($route, $publicPages)){            
+          Yii::app()->getModule('cms')->user->loginRequired();                
+      }
+      else
+          return true;
 		}
 		else
 			return false;
