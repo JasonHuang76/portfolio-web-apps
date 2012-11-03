@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 01, 2012 at 03:41 PM
+-- Generation Time: Nov 03, 2012 at 03:04 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -33,6 +33,13 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `slug`) VALUES
+(1, 'Default', 'default');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +65,14 @@ CREATE TABLE IF NOT EXISTS `options` (
   `value` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `options`
+--
+
+INSERT INTO `options` (`id`, `name`, `value`) VALUES
+(1, 'theme', 'default'),
+(2, 'siteurl', 'http://portfolio.local');
 
 -- --------------------------------------------------------
 
@@ -89,11 +104,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
   `nickname` varchar(500) NOT NULL,
-  `domain` varchar(500) NOT NULL,
+  `domain` varchar(500) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `modified_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `nickname`, `domain`, `created_at`, `modified_at`) VALUES
+(1, 'admin@eyesimple.us', '21232f297a57a5a743894a0e4a801fc3', 'admin', NULL, '2012-11-03 00:50:34', '2012-11-03 07:49:37');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
