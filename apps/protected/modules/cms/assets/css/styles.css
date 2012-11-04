@@ -2301,3 +2301,10 @@ table .dropdown-menu.pull-right { right: auto; left: 0; }
 .loginWrapper { top: 100px; margin-top: 0; }
 .logControl { padding-bottom: 50px; }
 }
+
+/* CUSTOM */
+.logo img{ max-height: 27px; }
+.nav{ margin-top: 0px; }
+#content{ margin-left: 101px; }
+.btn-add{ float: right; margin-top: 10px; position: relative; top: 10px; }
+.cleditorMain{ border: 1px solid #D7D7D7; }

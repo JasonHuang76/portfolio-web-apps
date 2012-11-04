@@ -1,7 +1,7 @@
 <?php
 require_once( dirname(__FILE__) . '/../components/cms.php');
 
-class UserController extends Controller
+class PostsController extends Controller
 {
   public $layout='/layouts/cms';
   
@@ -13,12 +13,8 @@ class UserController extends Controller
   
 	public function accessRules(){
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login, logout, error'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
+				'actions'=>array('index', 'add'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -38,11 +34,31 @@ class UserController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+    $type = 'post';
+    $posts = Posts::model()->findAll('type = :type', array(':type' => $type));
+		$this->render('index', array(
+      'posts' => $posts,
+      'type' => $type,
+    ));
 	}
   
-  public function actionLogin(){
+  public function actionAdd(){
+    $type = 'post';
+    $model = new Posts;
     
+    if(isset($_POST['Posts'])){
+			$model->attributes = $_POST['Posts'];
+      
+      if($model->save()){
+        Yii::app()->user->setFlash('success', 'You have successfully add new post.');
+				$this->redirect(array('index'));
+			}
+    }
+    
+		$this->render('add',array(
+      'model' => $model,
+      'type' => $type,
+		));
   }
 
 	// Uncomment the following methods and override them if needed

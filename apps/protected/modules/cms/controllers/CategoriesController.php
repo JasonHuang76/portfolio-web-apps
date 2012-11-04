@@ -1,7 +1,7 @@
 <?php
 require_once( dirname(__FILE__) . '/../components/cms.php');
 
-class UserController extends Controller
+class CategoriesController extends Controller
 {
   public $layout='/layouts/cms';
   
@@ -40,10 +40,6 @@ class UserController extends Controller
 	{
 		$this->render('index');
 	}
-  
-  public function actionLogin(){
-    
-  }
 
 	// Uncomment the following methods and override them if needed
 	/*

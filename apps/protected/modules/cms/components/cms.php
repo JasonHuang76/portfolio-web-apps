@@ -19,5 +19,13 @@
       Yii::getPathOfAlias('application.modules.cms.assets'));
       return $url;
     }
+    
+    public static function baseurl($url=null)
+    {
+      static $baseUrl;
+      if ($baseUrl===null)
+          $baseUrl=Yii::app()->getRequest()->getBaseUrl();
+      return $url===null ? $baseUrl : $baseUrl.'/'.ltrim($url,'/');
+    }
   }
 ?>
