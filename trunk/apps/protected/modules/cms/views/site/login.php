@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<title>Aquincum - premium admin theme by Eugene Kopyov</title>
+<title>CMS EYESIMPLE</title>
 
 <link href="<?php Helpers::register('css/styles.css'); ?>" rel="stylesheet" type="text/css" />
 <!--[if IE]> <link href="<?php Helpers::register('css/ie.css'); ?>" rel="stylesheet" type="text/css"> <![endif]-->
@@ -64,14 +64,12 @@
 <!-- Top line begins -->
 <div id="top">
 	<div class="wrapper">
-    	<a href="#" title="" class="logo"><img src="<?php echo Helpers::path(); ?>/images/logo.png" alt="" /></a>
+    	<a href="#" title="" class="logo"><img src="<?php echo Helpers::baseurl(); ?>/images/logo.png" alt="" /></a>
         
         <!-- Right top nav -->
         <div class="topNav">
             <ul class="userNav">
-                <li><a href="#" title="" class="screen"></a></li>
-                <li><a href="#" title="" class="settings"></a></li>
-                <li><a href="#" title="" class="logout"></a></li>
+                <li><a href="<?php echo Helpers::baseurl() ?>/" title="" class="logout"></a></li>
             </ul>
         </div>
         <div class="clear"></div>

@@ -31,12 +31,13 @@ class SiteController extends Controller
 		// );
 	// }
   
-  public function actionError(){
-    
+  protected function beforeAction($action) {
+    Yii::app()->params['settings'] = Options::model()->findAll();
+    return parent::beforeAction($action);
   }
   
-	public function actionIndex()
-	{
+	public function actionIndex(){
+    // print_r(Yii::app()->params['settings']);
 		$this->render('index');
 	}
   
@@ -58,7 +59,7 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect('index');
+				$this->redirect(Helpers::baseurl().'/admin');
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -68,31 +69,8 @@ class SiteController extends Controller
     Yii::app()->user->logout(false);
     $this->redirect(Yii::app()->getModule('cms')->user->loginUrl);
   }
-
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+  
+  public function actionError(){
+    
+  }
 }
