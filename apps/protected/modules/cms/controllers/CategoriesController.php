@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(__FILE__) . '/../components/cms.php');
+require_once( dirname(__FILE__) . '/../components/helpers.php');
 
 class CategoriesController extends Controller
 {
@@ -13,12 +13,8 @@ class CategoriesController extends Controller
   
 	public function accessRules(){
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login, logout, error'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
+				'actions'=>array('index', 'add'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -38,8 +34,39 @@ class CategoriesController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+    $terms = Terms::model()->findAll();
+    $term = new Terms;
+		$this->render('index', array(
+      'terms' => $terms,
+      'term' => $term
+    ));
 	}
+  
+  public function actionAdd(){
+    if(isset($_POST['Terms'])){
+      $term = new Terms;
+      $term->attributes = $_POST['Terms'];
+      
+      if($term->save()){
+        if(isset($term->parent)){
+          $taxonomy = new TermTaxonomy;
+          $taxonomy->term_id = $term->id;
+          $taxonomy->taxonomy = 'category';
+          $taxonomy->parent = $term->parent;
+          
+          if($taxonomy->save()){
+            echo 'true';
+          }else{
+            echo 'false';
+          }
+        }else{
+          echo 'true';
+        }
+      }else{
+        echo 'false';
+      }
+    }
+  }
 
 	// Uncomment the following methods and override them if needed
 	/*

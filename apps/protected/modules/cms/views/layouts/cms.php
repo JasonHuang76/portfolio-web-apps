@@ -53,6 +53,7 @@
 <?php Helpers::register('js/plugins/others/jquery.fullcalendar.js'); ?>
 <?php Helpers::register('js/plugins/others/jquery.elfinder.js'); ?>
 <?php Helpers::register('js/plugins/ui/jquery.easytabs.min.js'); ?>
+<?php Helpers::register('js/jquery.slug.js'); ?>
 <?php Helpers::register('js/files/bootstrap.js'); ?>
 <?php Helpers::register('js/files/login.js'); ?>
 <?php Helpers::register('js/files/functions.js'); ?>
@@ -60,6 +61,15 @@
 <?php //Helpers::register('js/charts/hBar_side.js'); ?>
 
 </head>
+
+<script>
+  $(document).ready(function(){
+    // slug
+    $('#title').slug({
+      hide: false
+    });
+  });
+</script>
 
 <body>
 

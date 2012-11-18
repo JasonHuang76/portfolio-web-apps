@@ -13,14 +13,7 @@
 
 <div id="content">
   <div class="contentTop">
-    <span class="pageTitle"><span class="icon-screen"></span><?php 
-      switch($type){
-        case 'page': echo 'Pages';
-          break;
-        default: echo 'Posts';
-          break;
-      }
-    ?></span>
+    <span class="pageTitle"><span class="icon-screen"></span><?php echo $model->title ?></span>
     <div class="clear"></div>
   </div>
   <!-- Breadcrumbs line -->
@@ -45,7 +38,7 @@
             }
           ?></a>
         </li>
-        <li class="current"><a href="#" title="">Add</a></li>
+        <li class="current"><a href="#" title="">Edit</a></li>
       </ul>
     </div>
   </div>
@@ -55,13 +48,20 @@
     <?php
       $form = $this->beginWidget('CActiveForm', array(
         'id' => 'validate',
-        'action' => Helpers::baseurl('admin/posts/add'),
+        'action' => Helpers::baseurl('admin/posts/edit/'.$model->id),
         'htmlOptions' => array(
           'class' => 'main',
         ),
       ));
     ?>
-    <?php echo $this->renderPartial('/partials/required_form', array('model' => $model, 'type' => $type, 'form' => $form, 'categories' => $categories)); ?>
+    
+    <?php
+      if(!isset($rels)){
+        $rels = '';
+      }
+    ?>
+    
+    <?php echo $this->renderPartial('/partials/required_form', array('model' => $model, 'type' => $type, 'form' => $form, 'categories' => $categories, 'rels' => $rels)); ?>
     <?php $this->endWidget(); ?>
   </div>
   

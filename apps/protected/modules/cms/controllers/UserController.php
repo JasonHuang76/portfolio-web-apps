@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(__FILE__) . '/../components/cms.php');
+require_once( dirname(__FILE__) . '/../components/helpers.php');
 
 class UserController extends Controller
 {

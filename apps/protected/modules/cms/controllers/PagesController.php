@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(__FILE__) . '/../components/cms.php');
+require_once( dirname(__FILE__) . '/../components/helpers.php');
 
 class PagesController extends Controller
 {
@@ -14,7 +14,7 @@ class PagesController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'add'),
+				'actions'=>array('index', 'add', 'edit'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -58,7 +58,19 @@ class PagesController extends Controller
 		$this->render('/posts/add',array(
       'model' => $model,
       'type' => $type,
+      'categories' => ''
 		));
+  }
+  
+  public function actionEdit($id){
+    $type = 'page';
+    $model = Posts::model()->find('id = :id', array(':id' => $id));
+    
+    $this->render('/posts/edit', array(
+      'type' => $type,
+      'model' => $model,
+      'categories' => ''
+    ));
   }
 
 	// Uncomment the following methods and override them if needed

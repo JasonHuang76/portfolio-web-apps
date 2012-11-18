@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(__FILE__) . '/../components/cms.php');
+require_once( dirname(__FILE__) . '/../components/helpers.php');
 
 class MediaController extends Controller
 {
@@ -38,7 +38,10 @@ class MediaController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+    $models = Posts::model()->findAll('type = :type', array(':type' => 'attachment'));
+		$this->render('index', array(
+      'models' => $models
+    ));
 	}
 
 	// Uncomment the following methods and override them if needed
