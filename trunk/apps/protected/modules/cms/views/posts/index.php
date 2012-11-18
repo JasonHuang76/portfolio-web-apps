@@ -78,12 +78,20 @@
             <th>Status</th>
             <th>Views</th>
             <th>Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach($posts as $post){ ?>
           <tr>
-            <td class="center"><?php echo $post->title; ?></td>
+            <td class="center"><a href="<?php echo Helpers::baseurl() ?>/admin/<?php 
+      switch($type){
+        case 'page': echo 'pages';
+          break;
+        default: echo 'posts';
+          break;
+      }
+    ?>/edit/<?php echo $post->id ?>"><?php echo $post->title; ?></a></td>
             <td class="center">
               <?php if($post->status == 'published'){ ?>
                 <span class="label label-success" style="margin-left: 10px;">Published</span>
@@ -95,6 +103,17 @@
             </td>
             <td class="center"><?php echo $post->total_views; ?></td>
             <td class="center"><?php echo $post->created_at; ?></td>
+            <td class="center">
+              <a href="<?php echo Helpers::baseurl() ?>/admin/<?php 
+      switch($type){
+        case 'page': echo 'pages';
+          break;
+        default: echo 'posts';
+          break;
+      }
+    ?>/edit/<?php echo $post->id ?>" class="tablectrl_small bGreyish tipS" title="Edit"><span class="iconb" data-icon="&#xe1db;"></span></a>
+              <a href="<?php echo Helpers::baseurl() ?>/admin/posts/delete/<?php echo $post->id ?>" class="tablectrl_small bRed tipS" title="Remove"><span class="iconb" data-icon="&#xe136;"></span></a>
+            </td>
           </tr>
           <?php } ?>
         </tbody>

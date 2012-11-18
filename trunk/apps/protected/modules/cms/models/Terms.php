@@ -1,26 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "posts".
+ * This is the model class for table "terms".
  *
- * The followings are the available columns in table 'posts':
+ * The followings are the available columns in table 'terms':
  * @property integer $id
- * @property string $title
- * @property string $content
- * @property string $type
- * @property string $status
+ * @property string $name
  * @property string $slug
- * @property integer $order
- * @property string $created_at
- * @property string $modified_at
  */
-class Posts extends CActiveRecord
+class Terms extends CActiveRecord
 {
-  public $category;
+  public $parent;
+  
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Posts the static model class
+	 * @return Terms the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +27,7 @@ class Posts extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'posts';
+		return 'terms';
 	}
 
 	/**
@@ -43,23 +38,23 @@ class Posts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, type, slug', 'required'),
-      array('status, content, order, created_at, modified_at, category, mime_type, url','safe'),
-			array('order', 'numerical', 'integerOnly'=>true),
-			array('title, content, type, status, slug', 'length', 'max'=>500),
+			array('name, slug', 'required'),
+			array('parent', 'safe'),
+			array('name, slug', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, content, type, status, slug, order, created_at, modified_at', 'safe', 'on'=>'search'),
+			array('id, name, slug', 'safe', 'on'=>'search'),
 		);
 	}
-  
-  public function relations()
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'post' => array(self::BELONGS_TO, 'TermRelationship', 'id'),
-			'metas' => array(self::HAS_MANY, 'PostMetas', 'post_id'),
 		);
 	}
 
@@ -70,14 +65,8 @@ class Posts extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'content' => 'Content',
-			'type' => 'Type',
-			'status' => 'Status',
+			'name' => 'Name',
 			'slug' => 'Slug',
-			'order' => 'Order',
-			'created_at' => 'Created At',
-			'modified_at' => 'Modified At',
 		);
 	}
 
@@ -93,14 +82,8 @@ class Posts extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('content',$this->content,true);
-		$criteria->compare('type',$this->type,true);
-		$criteria->compare('status',$this->status,true);
+		$criteria->compare('name',$this->name,true);
 		$criteria->compare('slug',$this->slug,true);
-		$criteria->compare('order',$this->order);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('modified_at',$this->modified_at,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

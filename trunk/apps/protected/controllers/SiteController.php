@@ -28,7 +28,6 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 		$this->render('index');
-    // echo Yii::app()->theme->baseUrl;
 	}
   
   public function actionSubdomain(){

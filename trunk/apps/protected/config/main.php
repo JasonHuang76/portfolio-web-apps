@@ -34,6 +34,10 @@ return array(
 
 	// application components
 	'components'=>array(
+    'assetManager' => array(
+      // comment this to enable cache
+      'linkAssets' => true,
+    ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -96,6 +100,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
     'app_domain' => 'portfolio.com',
-    'settings',
+    'settings' => '',
 	),
 );
