@@ -1,27 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "users".
+ * This is the model class for table "user_metas".
  *
- * The followings are the available columns in table 'users':
+ * The followings are the available columns in table 'user_metas':
  * @property integer $id
- * @property string $email
- * @property string $password
- * @property string $nickname
- * @property string $domain
- * @property string $created_at
- * @property string $modified_at
+ * @property string $meta_key
+ * @property string $meta_value
+ * @property integer $user_id
  */
-class Users extends CActiveRecord
+class UserMetas extends CActiveRecord
 {
-  public $role;
-  public $firstname;
-  public $lastname;
-  
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Users the static model class
+	 * @return UserMetas the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -33,7 +26,7 @@ class Users extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'users';
+		return 'user_metas';
 	}
 
 	/**
@@ -44,14 +37,13 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, password', 'required'),
-      array('email', 'email'),
-      array('email,username', 'unique'),
-      array('nickname, user_status, created_at, modified_at, role, firstname, lastname', 'safe'),
-			array('email, password, nickname, domain', 'length', 'max'=>500),
+			array('meta_key, meta_value, user_id', 'required'),
+      array('id', 'safe'),
+			array('id, user_id', 'numerical', 'integerOnly'=>true),
+			array('meta_key', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, email, password, nickname, domain, created_at, modified_at', 'safe', 'on'=>'search'),
+			array('id, meta_key, meta_value, user_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,12 +65,9 @@ class Users extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'email' => 'Email',
-			'password' => 'Password',
-			'nickname' => 'Nickname',
-			'domain' => 'Domain',
-			'created_at' => 'Created At',
-			'modified_at' => 'Modified At',
+			'meta_key' => 'Meta Key',
+			'meta_value' => 'Meta Value',
+			'user_id' => 'User',
 		);
 	}
 
@@ -94,12 +83,9 @@ class Users extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('nickname',$this->nickname,true);
-		$criteria->compare('domain',$this->domain,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('modified_at',$this->modified_at,true);
+		$criteria->compare('meta_key',$this->meta_key,true);
+		$criteria->compare('meta_value',$this->meta_value,true);
+		$criteria->compare('user_id',$this->user_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

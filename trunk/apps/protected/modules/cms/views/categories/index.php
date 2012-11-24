@@ -51,6 +51,11 @@
           });
         }
       });
+      
+      // delete
+      $('#del_cat').click(function(e){
+        $('#table_actions').submit();
+      });
     });
   </script>
   
@@ -101,7 +106,8 @@
         <?php $this->endWidget(); ?>
     </div>
     <div class="widget grid6">
-      <form class="main" id='table_actions' method='POST'>
+      <?php echo $this->renderPartial('/partials/notif'); ?>
+      <form class="main" id='table_actions' method='POST' action="<?php echo Helpers::baseurl() ?>/admin/categories/delete">
         <div class="whead"><span class="titleIcon check"><input type="checkbox" id="titleCheck" name="titleCheck" /></span>
           <!--<h6>Category Lists</h6>-->
           <div id="actions" style="position: relative; margin-left: 50px; top: 7px;">
@@ -110,7 +116,7 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-            <li><a href="#"><span class="icos-trash"></span>Remove</a></li>
+            <li><a id="del_cat" href="#"><span class="icos-trash"></span>Remove</a></li>
             </ul>
           </div>
           <div class="clear"></div>
@@ -129,8 +135,8 @@
             $n = 1;
             foreach($terms as $t){ ?>
             <tr>
-              <td><input type="checkbox" id="titleCheck<?php echo $n ?>" name="checkRow[<?php echo $n ?>]" /></td>
-              <td><span class="icos-full4"></span> <?php echo $t->name ?></td>
+              <td><input type="checkbox" id="titleCheck<?php echo $n ?>" name="cat[<?php echo $n ?>]" value="<?php echo $t->id ?>" /></td>
+              <td><!--<span class="icos-full4"></span> --><?php echo $t->name ?></td>
               <td><?php echo $t->slug ?></td>
               <td>0</td>
             </tr>

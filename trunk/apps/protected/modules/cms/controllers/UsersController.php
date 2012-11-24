@@ -13,12 +13,8 @@ class UsersController extends Controller
   
 	public function accessRules(){
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login, logout, error'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
+      array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('index', 'add', 'edit', 'delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -38,8 +34,89 @@ class UsersController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+    $posts = Users::model()->findAll();
+    // $user = UserMetas::model()->find('user_id = :user_id && meta_key = :meta_key', array(':user_id' => 1, ':meta_key' => 'user_role'));
+    
+    // print_r($user->attributes);
+    // exit;
+    
+		$this->render('index', array(
+      'posts' => $posts
+    ));
 	}
+  
+  public function actionEdit($id){
+    $model = Users::model()->find('id = :id', array(':id' => $id));
+    
+    if(isset($_POST['Users'])){
+      $data = $_POST['Users'];
+      $model->attributes = $data;
+      
+      if($model->save()){
+        Yii::app()->user->setFlash('success', 'You have successfully add new user.');
+				$this->redirect(array('/admin/users/index'));
+      }
+    }
+    
+    $this->render('edit', array(
+      'model' => $model
+    ));
+  }
+  
+  public function actionAdd(){
+    $model = new Users;
+    
+    if(isset($_POST['Users'])){
+      $data = $_POST['Users'];
+      $model->attributes = $data;
+      $model->password = md5($data['password']);
+      
+      if($model->save()){
+        // save user additional info
+        $user_meta = new UserMetas;
+        $user_meta->user_id = $model->id;
+        $user_meta->meta_key = 'user_role';
+        $user_meta->meta_value = $data['role'];
+        $user_meta->save();
+        
+        $user_meta = new UserMetas;
+        $user_meta->user_id = $model->id;
+        $user_meta->meta_key = 'firstname';
+        $user_meta->meta_value = $data['firstname'];
+        $user_meta->save();
+        
+        $user_meta = new UserMetas;
+        $user_meta->user_id = $model->id;
+        $user_meta->meta_key = 'lastname';
+        $user_meta->meta_value = $data['lastname'];
+        $user_meta->save();
+      
+        Yii::app()->user->setFlash('success', 'You have successfully add new user.');
+				$this->redirect(array('/admin/users/index'));
+      }
+    }
+    
+    $this->render('add', array(
+      'model' => $model
+    ));
+  }
+  
+  public function actionDelete($id){
+    $post = Users::model()->find('id = :id', array(':id' => $id));
+    
+    // delete all metas
+    $metas = UserMetas::model()->findAll('user_id = :user_id', array(':user_id' => $id));
+    if($metas){
+      foreach($metas as $meta){
+        $meta->delete();
+      }
+    }
+    
+    $post->delete();
+    
+    Yii::app()->user->setFlash('success', 'You have successfully delete a user.');
+    $this->redirect(array('/admin/users/index'));
+  }
 
 	// Uncomment the following methods and override them if needed
 	/*

@@ -1,11 +1,9 @@
 <?php
 require_once( dirname(__FILE__) . '/../components/helpers.php');
-
-class UserController extends Controller
-{
+class FieldsController extends Controller{
   public $layout='/layouts/cms';
   
-	public function filters(){
+  public function filters(){
 		return array(
 			'accessControl', // perform access control for CRUD operations
 		);
@@ -13,12 +11,8 @@ class UserController extends Controller
   
 	public function accessRules(){
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login, logout, error'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
+				'actions'=>array('index', 'add', 'edit', 'delete', 'upload'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -40,10 +34,6 @@ class UserController extends Controller
 	{
 		$this->render('index');
 	}
-  
-  public function actionLogin(){
-    
-  }
 
 	// Uncomment the following methods and override them if needed
 	/*

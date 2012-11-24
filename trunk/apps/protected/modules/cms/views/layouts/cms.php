@@ -168,13 +168,14 @@
         <!-- Main nav -->
         <ul class="nav">
             <li><a id="nav_dashboard" href="<?php echo Helpers::baseurl(); ?>/admin" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/dashboard.png" alt="" /><span>Dashboard</span></a></li>
-            <li><a id="nav_pages" href="<?php echo Helpers::baseurl(); ?>/admin/pages" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Pages</span></a></li>
-            <li><a id="nav_categories" href="<?php echo Helpers::baseurl(); ?>/admin/categories" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/statistics.png" alt="" /><span>Categories</span></a></li>
-            <li><a id="nav_posts" href="<?php echo Helpers::baseurl(); ?>/admin/posts" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Posts</span></a></li>
-            <li><a id="nav_settings" href="<?php echo Helpers::baseurl(); ?>/admin/settings" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/tables.png" alt="" /><span>Settings</span></a></li>
-            <li><a id="nav_users" href="<?php echo Helpers::baseurl(); ?>/admin/users" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/ui.png" alt="" /><span>Users</span></a></li>
             <li><a id="nav_media" href="<?php echo Helpers::baseurl(); ?>/admin/media" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Media Library</span></a></li>
+            <li><a id="nav_pages" href="<?php echo Helpers::baseurl(); ?>/admin/pages" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Pages</span></a></li>
+            <li><a id="nav_posts" href="<?php echo Helpers::baseurl(); ?>/admin/posts" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Posts</span></a></li>
+            <li><a id="nav_categories" href="<?php echo Helpers::baseurl(); ?>/admin/categories" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/statistics.png" alt="" /><span>Categories</span></a></li>
+            <li><a id="nav_users" href="<?php echo Helpers::baseurl(); ?>/admin/users" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/ui.png" alt="" /><span>Users</span></a></li>
+            <li><a id="nav_settings" href="<?php echo Helpers::baseurl(); ?>/admin/settings" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/tables.png" alt="" /><span>Settings</span></a></li>
             <li><a id="nav_comments" href="<?php echo Helpers::baseurl(); ?>/admin/comments" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Comments</span></a></li>
+            <li><a id="nav_fields" href="<?php echo Helpers::baseurl(); ?>/admin/fields" title=""><img src="<?php echo Helpers::path() ?>/images/icons/mainnav/forms.png" alt="" /><span>Custom Fields</span></a></li>
         </ul>
     </div>
     

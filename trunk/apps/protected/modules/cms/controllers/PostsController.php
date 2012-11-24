@@ -51,10 +51,18 @@ class PostsController extends Controller
     if(isset($_POST['Posts'])){
       $data = $_POST['Posts'];
 			$model->attributes = $data;
+      $model->author = $_SESSION['user_id'];
       
       if($model->save()){
         $model->url = Helpers::baseurl().'/?p='.$model->id;
         $model->save();
+        
+        // save post meta
+        $meta = new PostMetas;
+        $meta->post_id = $model->id;
+        $meta->meta_key = 'featured_image';
+        $meta->meta_value = $data['featured_image'];
+        $meta->save();
       
         if(isset($_POST['Posts']['category'])){
           $cats = explode(',',$data['category']);
@@ -89,10 +97,12 @@ class PostsController extends Controller
     $model = Posts::model()->find('id = :id', array(':id' => $id));
     $categories = Terms::model()->findAll();
     $rels = TermRelationships::model()->findAll('post_id = :post_id', array(':post_id' => $id));
+    $metas = PostMetas::model()->findAll('post_id = :post_id', array(':post_id' => $id));
     
     if(isset($_POST['Posts'])){
       $data = $_POST['Posts'];
 			$model->attributes = $_POST['Posts'];
+      $model->author = $_SESSION['user_id'];
       
       if($model->save()){
         if($model->type == 'post'){
@@ -101,11 +111,26 @@ class PostsController extends Controller
           $tmp = 'pages'; 
         }
         
+        // update post meta 
+        foreach($metas as $m){
+          $m->delete();
+        }
+        
+        $meta = new PostMetas;
+        $meta->post_id = $model->id;
+        $meta->meta_key = 'featured_image';
+        $meta->meta_value = $data['featured_image'];
+        $meta->save();
+        
         // delete relationships
-        $rels->delete();
+        foreach($rels as $rel){
+          $rel->delete();
+        }
         
         if(isset($data['category'])){
-          foreach($data['category'] as $cat){
+          $cats = explode(',',$data['category']);
+        
+          foreach($cats as $cat){
             $term_rel = new TermRelationships;
             $term_rel->post_id = $model->id;
             $term_rel->category_id = $cat;
@@ -172,6 +197,7 @@ class PostsController extends Controller
     $model->url = Helpers::path().'/uploads/'.$_POST['name'];
     $model->type= 'attachment';
     $model->mime_type = Helpers::get_mime_type($_POST['name']);
+    $model->author = $_SESSION['user_id'];
     
     if($model->save()){
       include(dirname(__FILE__) . '/../assets/php/upload.php');

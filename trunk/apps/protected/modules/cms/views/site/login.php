@@ -88,6 +88,7 @@
       'clientOptions'=>array(
         'validateOnSubmit'=>true,
       ),
+      // 'action' => Helpers::baseurl('admin/sessions/create'),
     )); ?>
         <div class="loginPic">
             <a href="#" title=""><img src="<?php echo Helpers::path(); ?>/images/userLogin2.png" alt="" /></a>

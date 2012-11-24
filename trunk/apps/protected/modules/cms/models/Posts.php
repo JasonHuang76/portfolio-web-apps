@@ -17,6 +17,8 @@
 class Posts extends CActiveRecord
 {
   public $category;
+  public $upload;
+  public $featured_image;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -44,7 +46,7 @@ class Posts extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, type, slug', 'required'),
-      array('status, content, order, created_at, modified_at, category, mime_type, url','safe'),
+      array('featured_image, author, status, content, order, created_at, modified_at, category, mime_type, url, upload','safe'),
 			array('order', 'numerical', 'integerOnly'=>true),
 			array('title, content, type, status, slug', 'length', 'max'=>500),
 			// The following rule is used by search().

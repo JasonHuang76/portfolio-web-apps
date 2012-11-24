@@ -17,16 +17,33 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
+    $username = $this->username;
+    $password = md5($this->password);
+    // $user = Users::model()->find('username = :username', array(':username' => $username));
+    $user = Users::model()->find('username = :username AND password = :password', array(':username' => $username, ':password' => $password ));
+    
+    // if user is exist
+    if($user){
+      $this->errorCode=self::ERROR_NONE;       
+
+      $session = new CHttpSession;
+      $session->open();
+      $session['user_id'] = $user->id;
+      $session['username'] = $user->username;
+    }else{
+      $this->errorCode=self::ERROR_USERNAME_INVALID;
+    }
+  
+		// $users=array(
 			// username => password
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
+			// 'admin'=>'admin',
+		// );
+		// if(!isset($users[$this->username]))
+			// $this->errorCode=self::ERROR_USERNAME_INVALID;
+		// else if($users[$this->username]!==$this->password)
+			// $this->errorCode=self::ERROR_PASSWORD_INVALID;
+		// else
+			// $this->errorCode=self::ERROR_NONE;
 		return !$this->errorCode;
 	}
 }
