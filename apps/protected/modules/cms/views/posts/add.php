@@ -29,7 +29,7 @@
       <ul id="breadcrumbs" class="breadcrumbs">
         <li><a href="#">Dashboard</a></li>
         <li>
-          <a href="<?php echo Helpers::baseurl(); ?>/<?php 
+          <a href="<?php echo Helpers::baseurl(); ?>/admin/<?php 
             switch($type){
               case 'page': echo 'pages';
                 break;

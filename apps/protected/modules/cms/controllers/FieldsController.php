@@ -32,8 +32,18 @@ class FieldsController extends Controller{
 
 	public function actionIndex()
 	{
-		$this->render('index');
+    $posts = Posts::model()->findAll('type = :type', array(':type' => 'custom_field'));
+		$this->render('index', array(
+      'posts' => $posts
+    ));
 	}
+  
+  public function actionAdd(){
+    $model = new Posts;
+    $this->render('add', array(
+      'model' => $model
+    ));
+  }
 
 	// Uncomment the following methods and override them if needed
 	/*
