@@ -70,5 +70,40 @@
       $extension = strtolower($file[$count-1]);
       return $mime_types[$extension];
     }
+    
+    // CMS FUNCTIONS
+    // ---------------------------------------------------
+    public static function get_posts($args){
+      $args = array(
+        'id' => (isset($args['id'])) ? $args['id'] : '',
+        'numberposts' => (isset($args['numberposts'])) ? $args['numberposts'] : '-1',
+        'type' => (isset($args['type'])) ? $args['type'] : 'post',
+      );
+      
+      $posts = Posts::model()->findAll('id = :id', array(':id' => $args['id']));
+      
+      return $posts;
+    }
+    
+    public static function get_meta($args){
+      $args = array(
+        'post_id' => (isset($args['post_id'])) ? $args['post_id'] : '',   // post_id or user_id
+        'meta' => (isset($args['meta'])) ? $args['meta'] : '',            // 
+        'type' => (isset($args['type'])) ? $args['type'] : 'posts',       // posts, users
+      );
+      
+      if($args['type'] == 'posts'){
+        $meta = PostMetas::model()->find('post_id = :post_id && meta_key = :meta_key', array(':post_id' => $args['post_id'], ':meta_key' => $args['meta']));
+      }else if($args['type'] == 'users'){
+        $meta = UserMetas::model()->find('user_id = :user_id && meta_key = :meta_key', array(':user_id' => $args['post_id'], ':meta_key' => $args['meta']));
+        // print_r($meta);
+      }
+      
+      if($meta){
+        return $meta->attributes;
+      }else{
+        return false;
+      }
+    }
   }
 ?>

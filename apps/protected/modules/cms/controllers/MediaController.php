@@ -13,12 +13,8 @@ class MediaController extends Controller
   
 	public function accessRules(){
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login, logout, error'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index'),
+      array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('index', 'sidebar'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -34,6 +30,14 @@ class MediaController extends Controller
   protected function beforeAction($action) {
     Yii::app()->params['settings'] = Options::model()->findAll();
     return parent::beforeAction($action);
+  }
+  
+  public function actionSidebar(){
+    $this->layout = 'no';
+    $models = Posts::model()->findAll('type = :type', array(':type' => 'attachment'));
+    $this->render('sidebar', array(
+      'models' => $models
+    ));
   }
 
 	public function actionIndex()

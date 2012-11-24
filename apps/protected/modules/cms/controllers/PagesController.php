@@ -48,6 +48,7 @@ class PagesController extends Controller
     
     if(isset($_POST['Posts'])){
 			$model->attributes = $_POST['Posts'];
+      $model->author = $_SESSION['user_id'];
       
       if($model->save()){
         Yii::app()->user->setFlash('success', 'You have successfully add new page.');

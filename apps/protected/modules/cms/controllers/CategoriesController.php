@@ -14,7 +14,7 @@ class CategoriesController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'add'),
+				'actions'=>array('index', 'add', 'delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -30,6 +30,25 @@ class CategoriesController extends Controller
   protected function beforeAction($action) {
     Yii::app()->params['settings'] = Options::model()->findAll();
     return parent::beforeAction($action);
+  }
+  
+  public function actionDelete(){
+    if(isset($_POST['cat'])){
+      $datas = $_POST['cat'];
+      
+      foreach($datas as $data){
+        $cat = Terms::model()->find('id = :id', array(':id' => $data));
+        $cat_rel = TermTaxonomy::model()->find('term_id = :term_id', array(':term_id' => $data));
+        $cat->delete();
+        
+        if($cat_rel){
+          $cat_rel->delete();
+        }
+      }
+      
+      Yii::app()->user->setFlash('success', 'You have successfully delete a category.');
+    }
+    $this->redirect('index');
   }
 
 	public function actionIndex()
