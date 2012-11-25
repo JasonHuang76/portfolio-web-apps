@@ -2314,3 +2314,4 @@ table .dropdown-menu.pull-right { right: auto; left: 0; }
 .iconsLine li.active{ background: none !important; box-shadow: 0 1px 0px #EEE inset, 0 1px 0 #EDEDED; -webkit-box-shadow: 0 1px 0px #EEE inset, 0 1px 0 #EDEDED; -moz-box-shadow: 0 1px 0px #eee inset, 0 1px 0 #ededed;}
 .feat_image{ background-position: center center !important; background-size: 210px auto !important; width: 150px; height: 150px; border: 1px solid #ccc; padding: 1px; margin-bottom: 10px; }
 .whead .buttonS.fr{ float: right; margin: 5px 14px; }
+.hide{ display: none; }

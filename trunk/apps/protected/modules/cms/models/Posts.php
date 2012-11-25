@@ -21,6 +21,11 @@ class Posts extends CActiveRecord
   public $featured_image;
   
   public $group_name;
+  // public $required;
+  // public $field_name;
+  // public $field_label;
+  // public $field_instructions;
+  // public $field_type;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
