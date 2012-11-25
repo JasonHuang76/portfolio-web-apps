@@ -39,8 +39,8 @@ class TermTaxonomy extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('term_id, taxonomy, parent', 'required'),
-			array('description, count', 'safe'),
+			array('term_id, taxonomy', 'required'),
+			array('description, count, parent', 'safe'),
 			array('term_id, parent, count', 'numerical', 'integerOnly'=>true),
 			array('taxonomy, description', 'length', 'max'=>500),
 			// The following rule is used by search().

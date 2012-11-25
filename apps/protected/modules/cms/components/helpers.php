@@ -73,16 +73,61 @@
     
     // CMS FUNCTIONS
     // ---------------------------------------------------
-    public static function get_posts($args){
+    public static function get_post($args){
       $args = array(
         'id' => (isset($args['id'])) ? $args['id'] : '',
         'numberposts' => (isset($args['numberposts'])) ? $args['numberposts'] : '-1',
         'type' => (isset($args['type'])) ? $args['type'] : 'post',
       );
       
-      $posts = Posts::model()->findAll('id = :id', array(':id' => $args['id']));
+      $posts = Posts::model()->find('id = :id', array(':id' => $args['id']));
+      
+      if(isset($posts)){
+        return $posts->attributes;
+      }else{
+        return false;
+      }
+    }
+    
+    public static function get_posts($args){
+      $args = array(
+        'category' => (isset($args['category'])) ? $args['category'] : '',
+        'numberposts' => (isset($args['numberposts'])) ? $args['numberposts'] : '-1',
+        'type' => (isset($args['type'])) ? $args['type'] : 'post',
+      );
+      
+      // if category is supplied, then get all posts from specified category
+      if($args['category'] != ''){
+        $posts = Posts::model()->findAll('id = :id', array(':id' => $args['id']));
+      }
+      // instead, get all posts
+      else{
+        $posts = Posts::model()->findAll();
+      }
       
       return $posts;
+    }
+    
+    public static function get_categories($args){
+      $args = array(
+        'parent' => (isset($args['parent'])) ? $args['parent'] : '',
+      );
+      
+      $return_array = array();
+      
+      // if parent is supplied, then get all specified categories
+      if($args['parent'] != ''){
+        $taxo_array = array();
+        $taxo = TermTaxonomy::model()->findAll('parent = :parent', array(':parent' => $args['parent']));
+        
+        $categories = Terms::model()->findAll();
+      }
+      // instead, get all categories
+      else{
+        $categories = Terms::model()->findAll();
+      }
+      
+      return $categories;
     }
     
     public static function get_meta($args){

@@ -67,20 +67,17 @@ class CategoriesController extends Controller
       $term->attributes = $_POST['Terms'];
       
       if($term->save()){
+        $parent = 0;
         if(isset($term->parent)){
-          $taxonomy = new TermTaxonomy;
-          $taxonomy->term_id = $term->id;
-          $taxonomy->taxonomy = 'category';
-          $taxonomy->parent = $term->parent;
-          
-          if($taxonomy->save()){
-            echo 'true';
-          }else{
-            echo 'false';
-          }
-        }else{
-          echo 'true';
+          $parent = $term->parent;
         }
+        
+        $taxonomy = new TermTaxonomy;
+        $taxonomy->term_id = $term->id;
+        $taxonomy->taxonomy = 'category';
+        $taxonomy->parent = $parent;
+        $taxonomy->save();
+        echo 'true';
       }else{
         echo 'false';
       }
