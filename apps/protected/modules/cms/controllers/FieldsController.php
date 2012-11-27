@@ -12,7 +12,7 @@ class FieldsController extends Controller{
 	public function accessRules(){
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'add', 'edit', 'delete', 'upload'),
+				'actions'=>array('index', 'add', 'edit', 'delete', 'upload', 'getposts'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -43,6 +43,17 @@ class FieldsController extends Controller{
     $this->render('add', array(
       'model' => $model
     ));
+  }
+  
+  public function actionGetPosts(){
+    $type = $_GET['type'];
+  
+    if($type == 'post'){
+      $args = array(
+        
+      );
+      return Helpers::get_posts($args);
+    }
   }
 
 	// Uncomment the following methods and override them if needed

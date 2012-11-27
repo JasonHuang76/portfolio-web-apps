@@ -1,5 +1,5 @@
 <script>
-  var count = 1;
+  var count = 0;
   var global;
   $(document).ready(function(){
     // create existing fields
@@ -31,12 +31,27 @@
       
       // make animation dropdown
       $('#'+count).slideToggle();
+      
+      // make slug
+      $('#'+count+' .slug').removeClass('slug').addClass('slug'+count);
+      $('#'+count+' .label-title').slug({
+        hide: false,
+        slug: 'slug'+count
+      });
+
     });
     
-    // hide & show event
-    $(document).on('click','.titleOpt',function(){
-      alert('asd');
-      $(this).parents('fieldset').find('.formRow').slideToggle();
+    $('#rules').change(function(){
+      var state = $(this).val();
+      
+      switch(state){
+        case 'post':
+          break;
+        case 'page':
+          break;
+        case 'category':
+          break;
+      }
     });
   });
 </script>
@@ -59,13 +74,13 @@
   <div class="widget fluid">
     <div class="whead">
       <h6>Field #1</h6>
-      <div class="titleOpt"><a href="#" data-toggle="dropdown"><span class="icos-blocks"></span><span class="clear"></span></a></div>
+      <div class="titleOpt" onClick="javascript: $(this).parents('fieldset').find('.formRow').slideToggle();"><a href="#" data-toggle="dropdown"><span class="icos-blocks"></span><span class="clear"></span></a></div>
       <div class="clear"></div>
     </div>
     <div class="formRow">
       <div class="grid3"><label>Field Label:</label></div>
       <div class="grid9">
-        <input type="text" name="Field[1][label]" class="validate[required]" />
+        <input type="text" name="Field[1][label]" class="validate[required] label-title" />
         <span class="note">This is the name which will appear on the EDIT page</span>
       </div>
       <div class="clear"></div>
@@ -73,7 +88,7 @@
     <div class="formRow">
       <div class="grid3"><label>Field Name:</label></div>
       <div class="grid9">
-        <input type="text" name="Field[1][name]" class="validate[required]" />
+        <input type="text" name="Field[1][name]" class="validate[required] slug" />
         <span class="note">Single word, no spaces. Underscores and dashes allowed</span>
       </div>
       <div class="clear"></div>
@@ -124,7 +139,7 @@
         <label>Rules</label>
       </div>
       <div class="grid9">
-        <select name="Rules[key]">
+        <select name="Rules[key]" id="rules">
           <option value="post">Post</option>
           <option value="page">Page</option>
           <option value="category">Category</option>
@@ -136,7 +151,14 @@
         </select>
         
         <select name="Rules[value]">
-          <option></option>
+          <?php
+            // default on posts
+            $args = array();
+            $posts = Helpers::get_posts($args);
+            foreach($posts as $post){
+          ?>
+          <option value="<?php echo $post->id ?>"><?php echo $post->title; ?></option>
+          <?php } ?>
         </select>
         <span class="note">Create a set of rules to determine which edit screens will use these advanced custom fields</span>
       </div>
