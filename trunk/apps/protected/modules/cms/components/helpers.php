@@ -1,5 +1,30 @@
 <?php
   class Helpers{
+    public static function slugify($text)
+    { 
+      // replace non letter or digits by -
+      $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+      // trim
+      $text = trim($text, '-');
+
+      // transliterate
+      $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+      // lowercase
+      $text = strtolower($text);
+
+      // remove unwanted characters
+      $text = preg_replace('~[^-\w]+~', '', $text);
+
+      if (empty($text))
+      {
+        return 'n-a';
+      }
+
+      return $text;
+    }
+  
     public static function register($file)
     {
       $url = Yii::app()->getAssetManager()->publish(
@@ -133,22 +158,31 @@
     public static function get_meta($args){
       $args = array(
         'post_id' => (isset($args['post_id'])) ? $args['post_id'] : '',   // post_id or user_id
-        'meta' => (isset($args['meta'])) ? $args['meta'] : '',            // 
+        'meta' => (isset($args['meta'])) ? $args['meta'] : '',            // search some meta value
         'type' => (isset($args['type'])) ? $args['type'] : 'posts',       // posts, users
       );
       
-      if($args['type'] == 'posts'){
-        $meta = PostMetas::model()->find('post_id = :post_id && meta_key = :meta_key', array(':post_id' => $args['post_id'], ':meta_key' => $args['meta']));
-      }else if($args['type'] == 'users'){
-        $meta = UserMetas::model()->find('user_id = :user_id && meta_key = :meta_key', array(':user_id' => $args['post_id'], ':meta_key' => $args['meta']));
-        // print_r($meta);
+      // if search for some meta value
+      $search_something = false;
+      if($args['meta'] != ''){
+        $search_something = true;
       }
       
-      if($meta){
-        return $meta->attributes;
-      }else{
-        return false;
+      if($args['type'] == 'posts'){
+        if($search_something == true){
+          $meta = PostMetas::model()->find('post_id = :post_id && meta_key = :meta_key', array(':post_id' => $args['post_id'], ':meta_key' => $args['meta']));
+        }else{
+          $meta = PostMetas::model()->findAll('post_id = :post_id', array(':post_id' => $args['post_id']));
+        }
+      }else if($args['type'] == 'users'){
+        if($search_something == true){
+          $meta = UserMetas::model()->find('user_id = :user_id && meta_key = :meta_key', array(':user_id' => $args['post_id'], ':meta_key' => $args['meta']));
+        }else{
+          $meta = UserMetas::model()->findAll('post_id = :post_id', array(':post_id' => $args['post_id']));
+        }
       }
+
+      return $meta;
     }
   }
 ?>

@@ -56,7 +56,7 @@ class Posts extends CActiveRecord
       array('featured_image, author, status, content, order, created_at, modified_at, category, mime_type, url, upload','safe'),
       array('group_name','required','on'=>'custom_field'),
 			array('order', 'numerical', 'integerOnly'=>true),
-			array('title, content, type, status, slug', 'length', 'max'=>500),
+			array('title, type, status, slug', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, content, type, status, slug, order, created_at, modified_at', 'safe', 'on'=>'search'),

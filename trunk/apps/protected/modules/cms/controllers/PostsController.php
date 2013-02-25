@@ -14,7 +14,7 @@ class PostsController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'add', 'edit', 'delete', 'upload'),
+				'actions'=>array('index', 'add', 'edit', 'delete', 'upload', 'getmeta'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,6 +41,72 @@ class PostsController extends Controller
       'type' => $type,
     ));
 	}
+  
+  public function actionGetMeta(){
+    // required parameters
+    if(isset($_GET['cat'])){
+      $cats = $_GET['cat'];
+    }
+    
+    if(isset($_GET['post_id'])){
+      $post_id = $_GET['post_id'];
+    }
+    
+    $cats = explode(',', $cats);
+    
+    $metas = PostMetas::model()->findAll('meta_key = "rules"');
+    $conditions = false;
+    
+    // check whether rule is the same as post condition
+    foreach($metas as $meta){
+      $rules = unserialize($meta->meta_value);
+      
+      // whether category is correct
+      if($rules['key'] == 'category'){
+      
+        foreach($cats as $cat){
+          // check condition
+          if($rules['condition'] == 'is_equal_to'){
+            if($rules['value'] == $cat){
+              $conditions = true;
+              $post_id = $meta->post_id;
+              break;
+            }
+          }else if($rules['value'] != $cat){
+            $conditions = true;
+            $post_id = $meta->post_id;
+            break;
+          }
+        }
+      }else if($rules['key'] == 'post' || $rules['key'] == 'page'){
+        // check condition
+        if($rules['condition'] == 'is_equal_to'){
+          if($rules['value'] == $post_id){
+            $conditions = true;
+            break;
+          }
+        }else if($rules['value'] != $post_id){
+          $conditions = true;
+          break;
+        }
+      }
+    }
+    
+    
+    // if all conditions are valid
+    if($conditions == true){
+      $count = PostMetas::model()->find('post_id = :post_id AND meta_key = "field_count"', array(':post_id' => $post_id));
+      $count = $count->meta_value;
+      
+      $arr = array();
+      for($a = 1; $a<=$count; $a++){
+        $data = PostMetas::model()->find('post_id = :post_id AND meta_key = :meta_key', array(':post_id' => $post_id, ':meta_key' => 'data_'.$a));
+        array_push($arr, $data->meta_value);
+      }
+      echo json_encode($arr);
+    }
+    
+  }
   
   public function actionAdd(){
     $type = 'post';
@@ -185,6 +251,8 @@ class PostsController extends Controller
       $tmp = 'pages';
     }else if($model->type == 'attachment'){
       $tmp = 'media';
+    }else if($model->type == 'field'){
+      $tmp = 'fields';
     }
     
     $this->redirect(array('/admin/'.$tmp.'/index'));

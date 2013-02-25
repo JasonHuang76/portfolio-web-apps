@@ -47,6 +47,19 @@
   });
 </script>
 
+<script>
+  $(document).ready(function(){
+    // category on change
+    $('#cat').change(function(){
+      $.ajax({
+        url: '<?php echo Helpers::baseurl() ?>/admin/posts/getmeta?cat='+($('#cat').val().toString())+'&post_id=<?php echo $model->id ?>'
+      }).done(function(data){
+        console.log(data);
+      });
+    });
+  });
+</script>
+
 <fieldset>
   <div class="widget fluid">
       <div class="whead"><h6>Additional Info</h6><div class="clear"></div></div>
@@ -130,8 +143,14 @@
       <div class="formRow">
           <div class="grid3"><label>Categories:</label></div>
           <div class="grid9">
-            <input type="hidden" name="Posts[category]" value="" />
-            <select data-placeholder="Select Categories" class="fullwidth select" multiple="multiple" tabindex="6" name="cat">
+            <?php echo $form->hiddenField($model, 'category') ?>
+            <script>
+              $(document).ready(function(){
+                $('#Posts_category').val($('#cat').val());
+              });
+            </script>
+            
+            <select data-placeholder="Select Categories" class="fullwidth select" multiple="multiple" tabindex="6" name="cat" id="cat">
               <?php 
                 foreach($categories as $category){ 
                   $selected = '';
@@ -151,7 +170,7 @@
       </div>
       <?php } ?>
       
-      <div class="formRow">
+      <div class="formRow actions">
         <input type="submit" class="buttonS bLightBlue" value="Submit">
       </div>
   </div>

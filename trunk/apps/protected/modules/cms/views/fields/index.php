@@ -39,9 +39,7 @@
         <table cellpadding="0" cellspacing="0" border="0" class="dTable">
         <thead>
           <tr>
-            <th>Title<span class="sorting" style="display: block;"></span></th>
-            <th>Status</th>
-            <th>Views</th>
+            <th>Group Name<span class="sorting" style="display: block;"></span></th>
             <th>Date</th>
             <th>Actions</th>
           </tr>
@@ -50,16 +48,6 @@
           <?php foreach($posts as $post){ ?>
           <tr>
             <td class="center"><a href="<?php echo Helpers::baseurl() ?>/admin/fields/edit/<?php echo $post->id ?>"><?php echo $post->title; ?></a></td>
-            <td class="center">
-              <?php if($post->status == 'published'){ ?>
-                <span class="label label-success" style="margin-left: 10px;">Published</span>
-              <?php }else if($post->status == 'disabled'){ ?>
-                <span class="label label-warning" style="margin-left: 10px;">Disabled</span>
-              <?php }else{ ?>
-                <span class="label" style="margin-left: 10px;">Draft</span>
-              <?php } ?>
-            </td>
-            <td class="center"><?php echo $post->total_views; ?></td>
             <td class="center"><?php echo $post->created_at; ?></td>
             <td class="center">
               <a href="<?php echo Helpers::baseurl() ?>/admin/fields/edit/<?php echo $post->id ?>" class="tablectrl_small bGreyish tipS" title="Edit"><span class="iconb" data-icon="&#xe1db;"></span></a>
