@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2013 at 11:59 AM
+-- Generation Time: Feb 25, 2013 at 06:12 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -66,24 +66,14 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `modified_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `author`, `title`, `content`, `type`, `mime_type`, `status`, `slug`, `url`, `order`, `total_views`, `total_comments`, `created_at`, `modified_at`) VALUES
-(1, 6, 'Sample Post', '<span style="font-family: arial; font-size: 13px; background-color: rgb(255, 255, 255);">Dignissim tristique turpis, vel tristique in adipiscing sed auctor hac arcu urna, augue ac, duis. Porttitor, magnis in amet elementum, mattis dictumst turpis vel! Et ut mid. A! In tempor. Nunc ut mattis tristique? Aenean rhoncus!</span>', 'post', '', 'published', 'sample-post', '/?p=1', 0, 0, 0, '2012-11-25 06:21:47', '0000-00-00 00:00:00'),
-(2, 6, 'p17k185lgfm1c1jce1knc14ar1ubi7.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgfm1c1jce1knc14ar1ubi7.jpg', '/assets/41582da/uploads/p17k185lgfm1c1jce1knc14ar1ubi7.jpg', 0, 0, 0, '2013-02-22 15:26:04', '0000-00-00 00:00:00'),
-(3, 6, 'p17k185lgfpoahsofaosnb1oiv8.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgfpoahsofaosnb1oiv8.jpg', '/assets/41582da/uploads/p17k185lgfpoahsofaosnb1oiv8.jpg', 0, 0, 0, '2013-02-22 15:26:04', '0000-00-00 00:00:00'),
-(4, 6, 'p17k185lggic2v2e18f8me0hna9.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lggic2v2e18f8me0hna9.jpg', '/assets/41582da/uploads/p17k185lggic2v2e18f8me0hna9.jpg', 0, 0, 0, '2013-02-22 15:26:04', '0000-00-00 00:00:00'),
-(5, 6, 'p17k185lgg869h8ros6189j13dia.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgg869h8ros6189j13dia.jpg', '/assets/41582da/uploads/p17k185lgg869h8ros6189j13dia.jpg', 0, 0, 0, '2013-02-22 15:26:05', '0000-00-00 00:00:00'),
-(6, 6, 'p17k185lgg11er2l61eqfkoff5ib.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgg11er2l61eqfkoff5ib.jpg', '/assets/41582da/uploads/p17k185lgg11er2l61eqfkoff5ib.jpg', 0, 0, 0, '2013-02-22 15:26:05', '0000-00-00 00:00:00'),
-(7, 6, 'p17k185lgg1c2fqsc6h61ehv1902c.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgg1c2fqsc6h61ehv1902c.jpg', '/assets/41582da/uploads/p17k185lgg1c2fqsc6h61ehv1902c.jpg', 0, 0, 0, '2013-02-22 15:26:05', '0000-00-00 00:00:00'),
-(8, 6, 'p17k185lgg1qe61mf9d4fg9fu4ud.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgg1qe61mf9d4fg9fu4ud.jpg', '/assets/41582da/uploads/p17k185lgg1qe61mf9d4fg9fu4ud.jpg', 0, 0, 0, '2013-02-22 15:26:05', '0000-00-00 00:00:00'),
-(9, 6, 'p17k185lgghhkm4jegvj32jlue.jpg', '', 'attachment', 'image/jpg', 'published', 'p17k185lgghhkm4jegvj32jlue.jpg', '/assets/41582da/uploads/p17k185lgghhkm4jegvj32jlue.jpg', 0, 0, 0, '2013-02-22 15:26:05', '0000-00-00 00:00:00'),
-(10, 6, '17-Aug-2010', '<font face="Arial, Verdana" style="font-family: Arial, Verdana; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; line-height: normal;"><span style="font-size: 12px;">Sed platea sed donec venenatis, magnam? Asperiores venenatis minima, quos, mi dui? Minim qui ad nulla, vestibulum aliquip! Magni hymenaeos, lorem facilis!</span></font>', 'post', '', 'published', '01-Oct-1991', '/?p=10', 0, 0, 0, '2013-02-22 15:26:37', '0000-00-00 00:00:00'),
-(23, 6, 'News', '', 'field', '', 'published', 'field_news', '', 0, 0, 0, '2013-02-25 06:30:40', '0000-00-00 00:00:00');
+(44, 6, 'Sample Post', '<font face="Arial, Verdana"><span style="font-size: 12px;">Ullam ratione eligendi. Rutrum nam curae, doloremque. Cillum vulputate, rutrum, primis commodi condimentum? Elementum, libero, veniam, eveniet ea voluptas porttitor placeat? Luctus primis dolores, ullamcorper a integer eveniet. Pharetra sollicitudin, cillum, proin facilis massa excepturi voluptatem rerum atque, recusandae mi excepturi arcu auctor accusamus? Facilisi dignissimos senectus hymenaeos. Esse quo augue optio sit error repudiandae metus felis, facilisi voluptatem imperdiet platea et fuga quas hic voluptatem justo laboris ultricies cupidatat saepe rutrum, elementum augue ullam parturient, nemo placerat quod quidem, erat auctor quas convallis. Aspernatur eos sequi? Platea ratione primis. Iure nec luctus neque eaque optio? Esse facere deserunt, impedit.</span></font>', 'post', '', 'published', 'sample-post', '/?p=44', 0, 0, 0, '2013-02-25 17:12:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -97,17 +87,7 @@ CREATE TABLE IF NOT EXISTS `post_metas` (
   `meta_key` varchar(255) NOT NULL,
   `meta_value` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
-
---
--- Dumping data for table `post_metas`
---
-
-INSERT INTO `post_metas` (`id`, `post_id`, `meta_key`, `meta_value`) VALUES
-(36, 23, 'data_1', 'a:6:{s:5:"label";s:3:"URL";s:4:"name";s:3:"url";s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";s:2:"no";s:7:"default";s:0:"";}'),
-(37, 23, 'field_count', '1'),
-(38, 23, 'rules', 'a:3:{s:3:"key";s:8:"category";s:9:"condition";s:11:"is_equal_to";s:5:"value";s:1:"6";}'),
-(53, 10, 'featured_image', '/assets/41582da/uploads/p17k185lgg11er2l61eqfkoff5ib.jpg');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=95 ;
 
 -- --------------------------------------------------------
 
@@ -142,15 +122,7 @@ CREATE TABLE IF NOT EXISTS `term_relationships` (
   `post_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
-
---
--- Dumping data for table `term_relationships`
---
-
-INSERT INTO `term_relationships` (`id`, `post_id`, `category_id`) VALUES
-(16, 10, 6),
-(17, 10, 7);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 -- --------------------------------------------------------
 

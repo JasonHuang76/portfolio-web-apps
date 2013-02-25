@@ -101,9 +101,11 @@ class PostsController extends Controller
       $arr = array();
       for($a = 1; $a<=$count; $a++){
         $data = PostMetas::model()->find('post_id = :post_id AND meta_key = :meta_key', array(':post_id' => $post_id, ':meta_key' => 'data_'.$a));
-        array_push($arr, $data->meta_value);
+        array_push($arr, unserialize($data->meta_value));
       }
-      echo json_encode($arr);
+      $tag_array = Helpers::render_html($arr);
+      echo json_encode($tag_array);
+      // print_r($tag_array);
     }
     
   }
@@ -130,6 +132,7 @@ class PostsController extends Controller
         $meta->meta_value = $data['featured_image'];
         $meta->save();
       
+        // attach relationship with terms
         if(isset($_POST['Posts']['category'])){
           $cats = explode(',',$data['category']);
           foreach($cats as $cat){
@@ -137,6 +140,29 @@ class PostsController extends Controller
             $term_rel->post_id = $model->id;
             $term_rel->category_id = $cat;
             $term_rel->save();
+          }
+        }
+        
+        // save custom fields
+        if(isset($_POST['Meta'])){
+          $field_datas = $_POST['Meta'];
+          $n = 0;
+          while(current($field_datas)){
+            $n++;
+            
+            $field = new PostMetas;
+            $field->post_id = $model->id;
+            $field->meta_key = key($field_datas);
+            $field->meta_value = current($field_datas);
+            $field->save();
+            
+            // constructor
+            $field = new PostMetas;
+            $field->post_id = $model->id;
+            $field->meta_key = '_'.key($field_datas);
+            $field->meta_value = 'field_'.$n;
+            $field->save();
+            next($field_datas);
           }
         }
       
@@ -201,6 +227,32 @@ class PostsController extends Controller
             $term_rel->post_id = $model->id;
             $term_rel->category_id = $cat;
             $term_rel->save();
+          }
+        }
+        
+        // save custom fields
+        if(isset($_POST['Meta'])){
+          $field_datas = $_POST['Meta'];
+          $n = 0;
+          while(current($field_datas)){
+            $n++;
+            
+            $field = PostMetas::model()->find('post_id = :post_id AND meta_key = :meta_key', array(':post_id' => $model->id, ':meta_key' => key($field_datas)));          
+            if(!$field){
+              $field = new PostMetas;
+            }
+            $field->post_id = $model->id;
+            $field->meta_key = key($field_datas);
+            $field->meta_value = current($field_datas);
+            $field->save();
+            
+            // constructor
+            $field = new PostMetas;
+            $field->post_id = $model->id;
+            $field->meta_key = '_'.key($field_datas);
+            $field->meta_value = 'field_'.$n;
+            $field->save();
+            next($field_datas);
           }
         }
         
