@@ -124,7 +124,12 @@ class FieldsController extends Controller{
           $n++;
           // edit some fields
           // $field = new PostMetas;
-          $field = PostMetas::model()->find('id = :meta_id', array(':meta_id' => $field_data['meta_id']));
+          if(isset($field_data['meta_id'])){
+            $field = PostMetas::model()->find('id = :meta_id', array(':meta_id' => $field_data['meta_id']));
+          }else{
+            $field = new PostMetas;
+          }
+          
           $field->post_id = $model->id;
           $field->meta_key = 'data_'.$n;
           

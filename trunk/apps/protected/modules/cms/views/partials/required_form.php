@@ -9,7 +9,7 @@
         var val = $(this).val().join(',');
       }
       $('input[name="Posts[category]"]').val(val);
-    }); 
+    });
     
     // sidebar media library
     $('#set_featured').click(function(e){
@@ -51,12 +51,59 @@
   $(document).ready(function(){
     // category on change
     $('#cat').change(function(){
-      $.ajax({
-        url: '<?php echo Helpers::baseurl() ?>/admin/posts/getmeta?cat='+($('#cat').val().toString())+'&post_id=<?php echo $model->id ?>'
-      }).done(function(data){
-        console.log(data);
-      });
+      $('.custom_field').remove();
+      if($('#cat').val() != null){
+        $.ajax({
+          url: '<?php echo Helpers::baseurl() ?>/admin/posts/getmeta?cat='+($('#cat').val().toString())+'&post_id=<?php echo $model->id ?>'
+        }).done(function(data){
+          data = $.parseJSON(data);
+          
+          for(var a=0;a< data.length;a++){
+            $('.formRow.actions').before(data[a]);
+          }
+          
+          // on edit group
+          <?php if($model->title){ ?>
+            <?php 
+              $metas = Helpers::get_post_field($model->id);
+              
+              foreach($metas as $meta){
+                $args = array(
+                  'post_id' => $model->id,
+                  'meta' => $meta
+                );
+                $m = Helpers::get_meta($args);
+                $value = $m->meta_value;
+            ?>
+                console.log('<?php echo $meta ?>');
+                $('*[name="Meta[<?php echo $m->meta_key ?>]"]').val('<?php echo $m->meta_value ?>');
+            <?php
+              };
+            ?>
+          <?php } ?>
+        });
+      }
     });
+    
+    // on edit group
+    <?php if($model->title){ ?>
+      $('#cat').trigger('change');
+      <?php 
+        $metas = Helpers::get_post_field($model->id);
+        
+        foreach($metas as $meta){
+          $args = array(
+            'post_id' => $model->id,
+            'meta' => $meta
+          );
+          $m = Helpers::get_meta($args);
+          $value = $m->meta_value;
+        ?>
+          $('*[name="Meta[<?php echo $m->meta_key ?>]"]').val('<?php echo $m->meta_value ?>');
+        <?php
+        };
+      ?>
+    <?php } ?>
   });
 </script>
 

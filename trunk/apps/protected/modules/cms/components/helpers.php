@@ -96,6 +96,47 @@
       return $mime_types[$extension];
     }
     
+    public static function render_html($arrs){
+      $return_tag = array();
+      foreach($arrs as $arr){
+        // render each html tag
+        $tag = '';
+        switch($arr['type']){
+          case "text":
+            $tag = '<input name="Meta['.$arr['name'].']" type="text" value="'.$arr['default'].'" ';
+            if($arr['required'] == 'yes'){
+              $tag = $tag.'class="validate[required]"';
+            }
+            $tag = $tag.' />';
+            break;
+          case "textarea":
+            $tag = '<textarea name="Meta['.$arr['name'].']" value="'.$arr['default'].'" ';
+            if($arr['required'] == 'yes'){
+              $tag = $tag.'class="validate[required]"';
+            }
+            $tag = $tag.' />';
+            break;
+        }
+        
+        // make it into html tag
+        $html = '<div class="formRow custom_field"><div class="grid3"><label>'.$arr['label'].'</label></div><div class="grid9">'.$tag.'</div><div class="clear"></div></div>';
+        array_push($return_tag, $html);
+      }
+      return $return_tag;
+    }
+    
+    public static function get_post_field($post_id){
+      $arr = array();
+      $metas = PostMetas::model()->findAll('post_id = :post_id AND meta_value LIKE "field_%"', array(':post_id' => $post_id));
+      
+      foreach($metas as $meta){
+        $key = explode('_',$meta->meta_key);
+        array_push($arr, $key[1]);
+      }
+      
+      return $arr;
+    }
+    
     // CMS FUNCTIONS
     // ---------------------------------------------------
     public static function get_post($args){
